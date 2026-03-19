@@ -16,8 +16,6 @@ These perform calculations on a set of values and return a single value.
 
 **Syntax:**
 ```sql
-SELECT AGG_FUNC(column_name) FROM table_name WHERE condition;
-```
 ### GROUP BY
 Groups records with the same values in specified columns.
 **Syntax:**
@@ -38,123 +36,147 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
-
+Write a SQL query to find What is the age difference between the youngest and oldest employee in the company.
 ```sql
--- Paste your SQL code below for Question 1
+SELECT MAX(age) - MIN(age) AS age_difference
+FROM employee;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="669" height="347" alt="image" src="https://github.com/user-attachments/assets/b9a88af5-6de8-4f38-9b65-4abf214a838d" />
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL query to Calculate the average income of the employees with names starting with 'A': 
+
 
 ```sql
--- Paste your SQL code below for Question 2
+select avg(income)  as avg_income 
+from employee
+where name like 'A%';
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="486" height="343" alt="image" src="https://github.com/user-attachments/assets/c49dbd53-2890-448e-9fe8-71fef9b0e1af" />
 
 **Question 3**
 ---
--- Paste Question 3 here
+What is the count of male and female patients?
+
 
 ```sql
--- Paste your SQL code below for Question 3
+SELECT Gender, COUNT(*) AS TotalPatients
+FROM Patients
+GROUP BY Gender;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="647" height="388" alt="image" src="https://github.com/user-attachments/assets/b7b40d76-37c1-4ca0-8fa3-8412f9343e48" />
 
 **Question 4**
 ---
--- Paste Question 4 here
+How many patients have expired insurance coverage for each insurance company?
+
 
 ```sql
--- Paste your SQL code below for Question 4
+SELECT InsuranceCompany,COUNT(PatientID) AS TotalExpiredPatients
+FROM Insurance
+GROUP BY InsuranceCompany;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="863" height="722" alt="image" src="https://github.com/user-attachments/assets/cd4e2341-4d73-4921-8c2b-da04ad899652" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write the SQL query that accomplishes the grouping of data by age, calculates the total income for each age group, and includes only those age groups where the total income sum is greater than 1,000,000.
+
 
 ```sql
--- Paste your SQL code below for Question 5
+select age ,SUM(income) 
+from employee 
+group by age 
+having SUM(income)>1000000;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="573" height="429" alt="image" src="https://github.com/user-attachments/assets/8c9c7ad1-7710-4531-8240-2657f3a265c1" />
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write the SQL query that achieves the selection of category and calculates the sum of the product of price and category ID as Revenue for each category from the "products" table, and includes only those products where the total revenue is greater than 25.
+
 
 ```sql
--- Paste your SQL code below for Question 6
+select category_id,(sum(price)*category_id) as Revenue 
+from products group by category_id 
+having revenue > 25;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="598" height="450" alt="image" src="https://github.com/user-attachments/assets/8aa02531-3932-4dd7-8df4-c75f0ac29b38" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write the SQL query that accomplishes the selection of total number of products for each category from the "products" table, and includes only those products where the minimum category ID is less than 3.
 
 ```sql
--- Paste your SQL code below for Question 7
+SELECT category_id, count(product_name)
+FROM products
+GROUP BY category_id
+HAVING category_id < 3
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="744" height="389" alt="image" src="https://github.com/user-attachments/assets/4507772b-d1b5-43de-b0ef-2c88aaca73c5" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write a SQL query to find the customer with longest name?
+
 
 ```sql
--- Paste your SQL code below for Question 8
+select name     ,max(length(name)) as     length
+from customer;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="609" height="327" alt="image" src="https://github.com/user-attachments/assets/c1fe0add-fedf-4eaa-b541-e9ff22fe3b37" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to find  how many employees work in California?
 
 ```sql
--- Paste your SQL code below for Question 9
+select count(id) as employees_in_california
+from employee
+where city like '%California%';
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="630" height="331" alt="image" src="https://github.com/user-attachments/assets/7d834d0e-2b00-462f-bafd-58b0fe5a8056" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to find the average length of email addresses (in characters):
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT AVG(LENGTH(email)) AS avg_email_length
+FROM customer;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="603" height="330" alt="image" src="https://github.com/user-attachments/assets/41e147b2-701c-44e8-8b16-4c3e6cf41259" />
 
 
 ## RESULT

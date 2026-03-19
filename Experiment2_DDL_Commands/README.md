@@ -105,123 +105,180 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Create a table named Departments with the following columns:
+
+DepartmentID as INTEGER
+DepartmentName as TEXT
 
 ```sql
--- Paste your SQL code below for Question 1
+CREATE TABLE Departments(
+DepartmentID INTEGER,
+DepartmentName TEXT
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1291" height="370" alt="image" src="https://github.com/user-attachments/assets/660b8b55-61ee-43cb-83a9-8716ec3af420" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write an SQL query to add two new columns, first_name and last_name, to the table employee. Both columns should have a data type of varchar(50).
+
 
 ```sql
--- Paste your SQL code below for Question 2
+ALTER TABLE employee
+ADD first_name  varchar(50);
+ALTER TABLE employee
+ADD last_name varchar(50);
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1297" height="332" alt="image" src="https://github.com/user-attachments/assets/1f7952e4-5bd6-4607-ab88-c8e7e7ee6280" />
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL Query  to change the name of attribute "name" to "first_name"  and add mobilenumber as number ,DOB as Date in the table Companies. 
+
 
 ```sql
--- Paste your SQL code below for Question 3
+ALTER TABLE Companies
+RENAME name to first_name;
+ALTER TABLE Companies
+ADD mobilenumber number;
+ALTER TABLE Companies
+ADD DOB Date;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1288" height="389" alt="image" src="https://github.com/user-attachments/assets/822e07a7-fbe2-4689-b4e8-cad748c4f6e7" />
 
 **Question 4**
 ---
--- Paste Question 4 here
+Create a table named Products with the following constraints:
+
+ProductID should be the primary key.
+ProductName should be NOT NULL.
+Price is of real datatype and should be greater than 0.
+Stock is of integer datatype and should be greater than or equal to 0.
 
 ```sql
--- Paste your SQL code below for Question 4
+CREATE TABLE Products(
+ProductID primary key,
+ProductName NOT NULL,
+Price real check(Price>0),
+Stock integer check(Stock>=0)
+);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1292" height="287" alt="image" src="https://github.com/user-attachments/assets/668ba8ab-7088-4d91-898c-2249a91ce96a" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Insert the below data into the Employee table, allowing the Department and Salary columns to take their default values.
+
 
 ```sql
--- Paste your SQL code below for Question 5
+INSERT INTO Employee(EmployeeID, Name, Position)
+VALUES (4, 'Emily White', 'Analyst');
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1290" height="326" alt="image" src="https://github.com/user-attachments/assets/70e676d4-a021-4f63-8b18-2572cf3eacb9" />
 
 **Question 6**
 ---
--- Paste Question 6 here
+Insert the below data into the Books table, allowing the Publisher and Year columns to take their default values.
 
 ```sql
--- Paste your SQL code below for Question 6
+INSERT INTO Books(ISBN, Title, Author)
+VALUES ('978-6655443321', 'Big Data Analytics', 'Karen Adams')
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1286" height="322" alt="image" src="https://github.com/user-attachments/assets/4c568936-7ed8-42a9-a3bd-ef364276a286" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+Create a table named Orders with the following columns:
 
+OrderID as INTEGER
+OrderDate as TEXT
+CustomerID as INTEGER
 ```sql
--- Paste your SQL code below for Question 7
+CREATE TABLE Orders(
+OrderID INTEGER,
+OrderDate TEXT,
+CustomerID INTEGER
+);
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1299" height="385" alt="image" src="https://github.com/user-attachments/assets/e75cb4fd-69d1-4106-9928-1364e04a8dae" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+Create a table named Department with the following constraints:
+DepartmentID as INTEGER should be the primary key.
+DepartmentName as TEXT should be unique and not NULL.
+Location as TEXT.
 
 ```sql
--- Paste your SQL code below for Question 8
+Create table Department(
+DepartmentID INTEGER primary key,
+DepartmentName TEXT unique not NULL,
+Location TEXT
+);
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1297" height="317" alt="image" src="https://github.com/user-attachments/assets/e9beb530-e495-4cb8-90eb-943eff00c7c1" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+Create a table named ProjectAssignments with the following constraints:
+AssignmentID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+AssignmentDate as DATE should be NOT NULL.
 
 ```sql
--- Paste your SQL code below for Question 9
+CREATE TABLE ProjectAssignments(
+AssignmentID INTEGER primary key,
+EmployeeID INTEGER,
+ProjectID INTEGER,
+AssignmentDate DATE not null,
+foreign key(EmployeeID)references Employees(EmployeeID)
+foreign key(ProjectID) references Projects(ProjectID)
+);
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1292" height="315" alt="image" src="https://github.com/user-attachments/assets/4d89df66-b5f5-4dcc-8564-1d2601a7483b" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+Insert all students from Archived_students table into the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 10
+INSERT INTO Student_details(RollNo,Name,Gender,Subject,MARKS)
+SELECT RollNO,Name,Gender,Subject,MARKS
+FROM Archived_students;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1294" height="291" alt="image" src="https://github.com/user-attachments/assets/16605711-21e6-4db8-8c60-496422437113" />
 
 
 ## RESULT

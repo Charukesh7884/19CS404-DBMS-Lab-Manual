@@ -57,7 +57,7 @@ ON table1.column = table2.column;
 From the following tables write a SQL query to find those customers with a grade less than 300. Return cust_name, customer city, grade, Salesman, salesmancity. The result should be ordered by ascending customer_id. 
 
 Sample table: customer
-
+```
  customer_id |   cust_name    |    city    | grade | salesman_id 
 -------------+----------------+------------+-------+-------------
         3002 | Nick Rimando   | New York   |   100 |        5001
@@ -68,8 +68,9 @@ Sample table: customer
         3009 | Geoff Cameron  | Berlin     |   100 |        5003
         3003 | Jozy Altidor   | Moscow     |   200 |        5007
         3001 | Brad Guzan     | London     |       |        5005
+```
 Sample table: salesman
-
+```
  salesman_id |    name    |   city   | commission 
 -------------+------------+----------+------------
         5001 | James Hoog | New York |       0.15
@@ -78,7 +79,7 @@ Sample table: salesman
         5006 | Mc Lyon    | Paris    |       0.14
         5007 | Paul Adam  | Rome     |       0.13
         5003 | Lauson Hen | San Jose |       0.12
-
+```
 ```sql
 SELECT 
     c.cust_name,
@@ -103,7 +104,7 @@ ORDER BY c.customer_id ASC;
 From the following tables write a SQL query to locate those salespeople who do not live in the same city where their customers live and have received a commission of more than 12% from the company. Return Customer Name, customer city, Salesman, salesman city, commission.  
 
 Sample table: customer
-
+```
  customer_id |   cust_name    |    city    | grade | salesman_id 
 -------------+----------------+------------+-------+-------------
         3002 | Nick Rimando   | New York   |   100 |        5001
@@ -114,8 +115,9 @@ Sample table: customer
         3009 | Geoff Cameron  | Berlin     |   100 |        5003
         3003 | Jozy Altidor   | Moscow     |   200 |        5007
         3001 | Brad Guzan     | London     |       |        5005
+```
 Sample table: salesman
-
+```
  salesman_id |    name    |   city   | commission 
 -------------+------------+----------+------------
         5001 | James Hoog | New York |       0.15
@@ -124,7 +126,7 @@ Sample table: salesman
         5006 | Mc Lyon    | Paris    |       0.14
         5007 | Paul Adam  | Rome     |       0.13
         5003 | Lauson Hen | San Jose |       0.12
-
+```
 ```sql
 SELECT 
     c.cust_name AS "Customer Name",
@@ -149,7 +151,7 @@ WHERE c.city <> s.city
 Write a SQL statement to make a report with customer name, city, order number, order date, and order amount in ascending order according to the order date to determine whether any of the existing customers have placed an order or not.
 
 Sample table: orders
-
+```
 ord_no      purch_amt   ord_date    customer_id  salesman_id
 ----------  ----------  ----------  -----------  -----------
 70001       150.5       2012-10-05  3005         5002
@@ -164,8 +166,9 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 70012       250.45      2012-06-27  3008         5002
 70011       75.29       2012-08-17  3003         5007
 70013       3045.6      2012-04-25  3002         5001
+```
 Sample table: customer
-
+```
  customer_id |   cust_name    |    city    | grade | salesman_id 
 -------------+----------------+------------+-------+-------------
         3002 | Nick Rimando   | New York   |   100 |        5001
@@ -174,7 +177,8 @@ Sample table: customer
         3008 | Julian Green   | London     |   300 |        5002
         3004 | Fabian Johnson | Paris      |   300 |        5006
         3009 | Geoff Cameron  | Berlin     |   100 |        5003
-        3003 | Jozy Altidor   | Moscow     |   200 |        5007
+       3003 | Jozy Altidor   | Moscow     |   200 |        5007
+```
 ```sql
 SELECT 
     c.cust_name,
@@ -198,7 +202,7 @@ ORDER BY o.ord_date ASC;
 Write the SQL query that accomplishes the selection of the first name from the "patients" table and all columns from the "surgeries" table, with an inner join on the "patient_id" column and a condition filtering for patients with the first name 'Alice'.
 
 PATIENTS TABLE:
-
+```
 name             type
 ---------------  ---------------
 patient_id       INT
@@ -208,16 +212,16 @@ date_of_birth    DATE
 admission_date   DATE
 discharge_date   DATE
 doctor_id        INT
-
+```
 SURGERIES TABLE:
-
+```
 name             type
 ---------------  ---------------
 surgery_id       INT
 patient_id       INT
 surgeon_id       INT
 surgery_date     DATE
-
+```
 ```sql
 SELECT 
     p.first_name,
@@ -266,7 +270,7 @@ INNER JOIN departments d
 write a SQL query to find the salesperson and customer who reside in the same city. Return Salesman, cust_name and city.
 
 Sample table: salesman
-
+```
  salesman_id |    name    |   city   | commission 
 -------------+------------+----------+------------
         5001 | James Hoog | New York |       0.15
@@ -275,8 +279,9 @@ Sample table: salesman
         5006 | Mc Lyon    | Paris    |       0.14
         5007 | Paul Adam  | Rome     |       0.13
         5003 | Lauson Hen | San Jose |       0.12
+```
 Sample table: customer
-
+```
  customer_id |   cust_name    |    city    | grade | salesman_id 
 -------------+----------------+------------+-------+-------------
         3002 | Nick Rimando   | New York   |   100 |        5001
@@ -287,7 +292,7 @@ Sample table: customer
         3009 | Geoff Cameron  | Berlin     |   100 |        5003
         3003 | Jozy Altidor   | Moscow     |   200 |        5007
         3001 | Brad Guzan     | London     |       |        5005
-
+```
 ```sql
 SELECT 
     s.name AS "Salesman",
@@ -381,7 +386,7 @@ WHERE a.appointment_date BETWEEN '2024-02-01' AND '2024-02-28';
 From the following tables write a SQL query to find the details of an order. Return ord_no, ord_date, purch_amt, Customer Name, grade, Salesman, commission. 
 
 Sample table: orders
-
+```
 ord_no      purch_amt   ord_date    customer_id  salesman_id
 ----------  ----------  ----------  -----------  -----------
 70001       150.5       2012-10-05  3005         5002
@@ -396,8 +401,9 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 70012       250.45      2012-06-27  3008         5002
 70011       75.29       2012-08-17  3003         5007
 70013       3045.6      2012-04-25  3002         5001
+```
 Sample table: customer
-
+```
  customer_id |   cust_name    |    city    | grade | salesman_id 
 -------------+----------------+------------+-------+-------------
         3002 | Nick Rimando   | New York   |   100 |        5001
@@ -408,6 +414,8 @@ Sample table: customer
         3009 | Geoff Cameron  | Berlin     |   100 |        5003
         3003 | Jozy Altidor   | Moscow     |   200 |        5007
         3001 | Brad Guzan     | London     |       |        5005
+```
+```
 Sample table: salesman
 
  salesman_id |    name    |   city   | commission 
@@ -418,6 +426,7 @@ Sample table: salesman
         5006 | Mc Lyon    | Paris    |       0.14
         5007 | Paul Adam  | Rome     |       0.13
         5003 | Lauson Hen | San Jose |       0.12
+```
 
 ```sql
 SELECT 
